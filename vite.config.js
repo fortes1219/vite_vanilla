@@ -1,16 +1,18 @@
 const { resolve } = require("path");
 const { defineConfig } = require("vite");
 
+import path from "path"
+
 module.exports = defineConfig({
   base: "./",
   publicPath: process.env.NODE_ENV === "production" ? "/vite_vanilla/" : "./",
   resolve: {
     alias: {
-      "/@/": resolve(__dirname, "./src/"),
-      "/assets/": resolve(__dirname, "/src/assets/"),
-      "/img/": resolve(__dirname, "/src/assets/img"),
-      "/styles/": resolve(__dirname, "/src/styles/"),
-      "/pages/": resolve(__dirname, "/src/pages/"),
+      "@": path.resolve(__dirname, "src"),
+      "assets": path.resolve(__dirname, "src/assets/"),
+      "img": path.resolve(__dirname, "src/img"),
+      "styles": path.resolve(__dirname, "src/styles/"),
+      "pages": path.resolve(__dirname, "src/pages/"),
     },
   },
   build: {
@@ -27,6 +29,12 @@ module.exports = defineConfig({
           let type = info.name.split(".")[1];
           if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp/i.test(type)) {
             type = "img";
+          } else if (/ttf|eot|woff|woff2/i.test(type)) {
+            type = "fonts"
+          } else if (/mp4|webm|ogg/i.test(type)) {
+            type = "video"
+          } else if (/mp3|wav/i.test(type)) {
+            type = "sound"
           }
           return `${type}/[name]-[hash].[ext]`;
         },
