@@ -6,11 +6,164 @@ html, body {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     position: relative;
     width: 100%;
-    height: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
 }
 
 .cover_img {
     border: 1px solid #ccc;
     padding: 0.5rem;
     margin: 10px;
+}
+
+@mixin basicSelector($color) {
+    width: 100px;
+    height: 50px;
+    background-color: $color;
+    @if $color == #333 {
+        color: #fff;
+    }
+}
+
+.playground {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    box-sizing: border-box;
+    .play-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        #select_id {
+            @include basicSelector(#ccc);
+        }
+        .select_class {
+            @include basicSelector(#333);
+        }
+    }
+}
+
+/* Attribute */
+
+[class^='group'] {
+    font-size: 0.85rem;
+    @extend .select_class;
+}
+
+/* Brother Elements */
+
+@mixin brothers {
+    display: block;
+    padding: 0.5rem 1rem;
+    padding: 0.5rem 1rem 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+// .brother_1 {
+//     @include brothers;
+//     &+ {
+//         .brother_2, .brother_3 {
+//             @include brothers;
+//         }
+//     }
+
+//     &~ {
+//         .brother_3 {
+//             @include brothers;
+//         }
+//     }
+// }
+
+@for $i from 1 through 3 {
+    .brother_#{$i} {
+        @include brothers;
+    }
+}
+
+/* Child Elements */
+
+.child {
+    padding:  1rem;
+}
+
+.child > p {
+    background-color: #f90;
+}
+
+.child p {
+    font-weight: bold;
+}
+
+.child * p {
+    background-color: #ff4545;
+}
+
+/* Psuedo Class */
+
+ul {
+    list-style: none;
+    li {
+        // a:link {
+        //     color: rgba(0, 0, 0, 1);
+        // }
+        &:nth-child(odd) {
+            background-color: rgb(198, 255, 212);
+        }
+        &:nth-child(even) {
+            background-color: #ccc;
+        }
+        &:nth-child(2) {
+            font-weight: bold;
+        }
+
+        &:first-child {
+            &a:link {
+                color: red;
+            }
+        }
+
+        &:last-child {
+            background-color: transparent;
+        }
+
+        &:hover {
+            background-color: #f90;
+            color: #fff;
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+
+/* Psuedo Elements */
+
+.icon_btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgb(41, 87, 255);
+    color: #fff;
+    border-radius: 6px;
+    &::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        background: url('../img/cart.svg') no-repeat;
+    }
+    &::after {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        margin-left: 10px;
+        background: url('../img/cart.svg') no-repeat;
+    }
 }

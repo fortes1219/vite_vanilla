@@ -8,9 +8,61 @@
   </head>
   <body>
     <div id="app">
-        <h1>Selector Page</h1>
-        <br>
-        <a href="./index.html">BACK</a>
+      <h1>Selector Page</h1>
+      <br />
+      <a href="./index.html">BACK</a>
+      <div class="playground">
+        <div class="play-items">
+          <h2>ID & Class:</h2>
+          <div id="select_id">ID Selector</div>
+          <span class="select_class">Class Selector</span>
+        </div>
+
+        <div class="play-items">
+          <h2>Select Attribute Group:</h2>
+          <div class="group_class">Group Selector 1</div>
+          <div class="group_class">Group Selector 2</div>
+        </div>
+
+        <div class="play-items">
+          <h2>Select Brother Elements:</h2>
+          <div class="brother_1">brother 1</div>
+          <div class="brother_2">brother 2</div>
+          <div class="brother_3">brother 3</div>
+        </div>
+
+        <div class="play-items">
+          <h2>Select Child Elements:</h2>
+          <div class="child">
+            <p>directive child</p>
+            <span>
+              <p>not directive child</p>
+            </span>
+            <div>
+              <span>
+                <p>not directive child</p>
+              </span> 
+            </div>
+          </div>
+        </div>
+
+        <div class="play-items">
+          <h2>Select Psuedo Class:</h2>
+          <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+            <li><a href="#">Link 5</a></li>
+          </ul>
+        </div>
+
+        <div class="play-items">
+          <h2>Select Psuedo Elements:</h2>
+          <span class="icon_btn">button</span>
+        </div>
+        
+      </div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
