@@ -167,3 +167,15 @@ ul {
         background: url('../img/cart.svg') no-repeat;
     }
 }
+
+/* inline block */
+
+.inline_block {
+    div {
+        display: inline-block;
+        width: 120px;
+        height: 200px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+}
