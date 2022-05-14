@@ -19,6 +19,7 @@ module.exports = defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
+        topic: resolve(__dirname, "selector.html"),
         topic: resolve(__dirname, "topic.html"),
         contact: resolve(__dirname, "contact.html"),
       },
