@@ -20,6 +20,7 @@ module.exports = defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         selector: resolve(__dirname, "selector.html"),
+        position: resolve(__dirname, "position.html"),
         topic: resolve(__dirname, "topic.html"),
         contact: resolve(__dirname, "contact.html"),
       },
