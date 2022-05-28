@@ -20,6 +20,7 @@ module.exports = defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         topic: resolve(__dirname, "topic.html"),
+        cover: resolve(__dirname, "cover.html"),
         contact: resolve(__dirname, "contact.html"),
       },
       output: {
