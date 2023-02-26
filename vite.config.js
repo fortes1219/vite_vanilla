@@ -1,9 +1,9 @@
-const { resolve } = require("path");
-const { defineConfig } = require("vite");
+import { defineConfig } from "vite";
+import path, { resolve } from "path";
 
 import path from "path"
 
-module.exports = defineConfig({
+export default defineConfig({
   base: "./",
   publicPath: process.env.NODE_ENV === "production" ? "/vite_vanilla/" : "./",
   resolve: {
